@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | AttendEase</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css"
+    />
+
+    />
+  </head>
+  <body>
+    <!-- Top Header (white bar) -->
+    <header class="top-header">
+      <input type="text" class="search-bar" placeholder="Search here..." />
+      <div class="user-info">
+        <i class="fas fa-bell bell"></i>
+        <div class="name-role">
+          <span class="username">John D. Admin</span>
+          <span class="role">Administrator</span>
+        </div>
+        <img
+          src="https://via.placeholder.com/30"
+          class="avatar"
+          alt="Profile"
+        />
+      </div>
+    </header>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="logo">
+          <img src="images/AElogo.png" alt="AttendEase Logo" class="logo-img" />
+        </div>
+        <ul class="sidebar-menu">
+          <li class="menu-label">MAIN</li>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+          </li>
+
+          <li class="menu-label">MANAGEMENT</li>
+          <li>
+            <a href="#"><i class="fas fa-chalkboard-teacher"></i> Teachers</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user-graduate"></i> Learners</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-calendar-check"></i> Attendance</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+          </li>
+
+          <li class="menu-label">REPORTS</li>
+          <li>
+            <a href="#"><i class="fas fa-file-alt"></i> SF2 Report</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-chart-line"></i> Trend Analysis</a>
+          </li>
+          <li class="menu-separator"></li>
+          <li>
+            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div id="welcome-msg" class="welcome">Welcome Admin!</div>
+        <h1>DASHBOARD</h1>
+
+        <div class="quick-links">
+          <div class="info-card">
+            <div class="icon"><i class="fas fa-user-graduate"></i></div>
+            <p class="label">Learners</p>
+            <p class="count">120</p>
+            <a href="#">More info <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="info-card">
+            <div class="icon"><i class="fas fa-building-columns"></i></div>
+            <p class="label">Sections</p>
+            <p class="count">8</p>
+            <a href="#">More info <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="info-card">
+            <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <p class="label">Teachers</p>
+            <p class="count">15</p>
+            <a href="#">More info <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h2>Trend Analysis</h2>
+            <div class="placeholder trend"></div>
+          </div>
+          <div class="card">
+            <h2>Calendar</h2>
+            <div id="calendar"></div>
+          </div>
+        </div>
+
+        <div class="report">
+          <h2>Recent SF2 Report</h2>
+          <div class="placeholder report-content"></div>
+        </div>
+
+        <div class="activity">
+          <h2>Recent Activity</h2>
+          <div class="placeholder activity-content"></div>
+        </div>
+      </main>
+    </div>
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
