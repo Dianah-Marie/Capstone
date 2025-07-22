@@ -4,18 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard | AttendEase</title>
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
 
+    <!-- FullCalendar -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css"
     />
   </head>
   <body>
-    <!-- Top Header (white bar) -->
+    <!-- Top Header -->
     <header class="top-header">
       <input type="text" class="search-bar" placeholder="Search here..." />
       <div class="user-info">
@@ -32,46 +41,64 @@
       </div>
     </header>
 
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-
     <div class="container">
       <!-- Sidebar -->
       <nav class="sidebar">
         <div class="logo">
           <img src="images/AElogo.png" alt="AttendEase Logo" class="logo-img" />
+          <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
         </div>
+
         <ul class="sidebar-menu">
           <li class="menu-label">MAIN</li>
           <li>
-            <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="index.html">
+              <i class="fas fa-home"></i> <span>Dashboard</span>
+            </a>
           </li>
 
           <li class="menu-label">MANAGEMENT</li>
           <li>
-            <a href="#"><i class="fas fa-chalkboard-teacher"></i> Teachers</a>
+            <a href="#">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <span>Teachers</span>
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fas fa-user-graduate"></i> Learners</a>
+            <a href="#">
+              <i class="fas fa-user-graduate"></i> <span>Learners</span>
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fas fa-calendar-check"></i> Attendance</a>
+            <a href="#">
+              <i class="fas fa-calendar-check"></i> <span>Attendance</span>
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+            <a href="#">
+              <i class="fas fa-calendar-alt"></i> <span>Schedule</span>
+            </a>
           </li>
 
           <li class="menu-label">REPORTS</li>
           <li>
-            <a href="#"><i class="fas fa-file-alt"></i> SF2 Report</a>
+            <a href="#">
+              <i class="fas fa-file-alt"></i> <span>SF2 Report</span>
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fas fa-chart-line"></i> Trend Analysis</a>
+            <a href="#">
+              <i class="fas fa-chart-line"></i> <span>Trend Analysis</span>
+            </a>
           </li>
+
           <li class="menu-separator"></li>
           <li>
-            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="#">
+              <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+            </a>
           </li>
         </ul>
       </nav>
@@ -124,6 +151,8 @@
         </div>
       </main>
     </div>
+
+    <!-- JS File -->
     <script src="js/script.js" defer></script>
   </body>
 </html>
