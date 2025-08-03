@@ -46,18 +46,35 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 3000);
   }
 
-  // 📂 Sidebar Toggle Logic (updated version)
+  // 📂 Sidebar Toggle
   const menuToggle = document.getElementById('menu-toggle');
   const sidebar = document.querySelector('.sidebar');
   const mainContent = document.querySelector('.main-content');
 
   menuToggle.addEventListener('click', () => {
     sidebar.classList.toggle('closed');
-
-    if (sidebar.classList.contains('closed')) {
-      mainContent.style.marginLeft = '60px';
-    } else {
-      mainContent.style.marginLeft = '220px';
-    }
+    mainContent.style.marginLeft = sidebar.classList.contains('closed') ? '60px' : '220px';
   });
+
+  // 🔒 Logout Modal Logic (moved outside of sidebar toggle)
+  const logoutLink = document.querySelector('a[title="Logout"]');
+  const modal = document.getElementById('logoutModal');
+  const cancelBtn = document.getElementById('cancelLogout');
+
+  if (logoutLink && modal && cancelBtn) {
+    logoutLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      modal.style.display = 'flex';
+    });
+
+    cancelBtn.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  }
 });

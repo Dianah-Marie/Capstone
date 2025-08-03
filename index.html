@@ -24,84 +24,85 @@
     />
   </head>
   <body>
-    <!-- Top Header -->
-    <header class="top-header">
-      <input type="text" class="search-bar" placeholder="Search here..." />
-      <div class="user-info">
-        <i class="fas fa-bell bell"></i>
-        <div class="name-role">
-          <span class="username">John D. Admin</span>
-          <span class="role">Administrator</span>
-        </div>
-        <img
-          src="https://via.placeholder.com/30"
-          class="avatar"
-          alt="Profile"
-        />
-      </div>
-    </header>
-
     <div class="container">
       <!-- Sidebar -->
       <nav class="sidebar">
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+
         <div class="logo">
           <img src="images/AElogo.png" alt="AttendEase Logo" class="logo-img" />
-          <div class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
-          </div>
         </div>
 
         <ul class="sidebar-menu">
           <li class="menu-label">MAIN</li>
           <li>
-            <a href="index.html">
+            <a href="index.html" title="Dashboard">
               <i class="fas fa-home"></i> <span>Dashboard</span>
             </a>
           </li>
 
           <li class="menu-label">MANAGEMENT</li>
           <li>
-            <a href="#">
+            <a href="#" title="Teachers">
               <i class="fas fa-chalkboard-teacher"></i>
               <span>Teachers</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" title="Learners">
               <i class="fas fa-user-graduate"></i> <span>Learners</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" title="Attendance">
               <i class="fas fa-calendar-check"></i> <span>Attendance</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" title="Schedule">
               <i class="fas fa-calendar-alt"></i> <span>Schedule</span>
             </a>
           </li>
 
           <li class="menu-label">REPORTS</li>
           <li>
-            <a href="#">
+            <a href="#" title="School Form 2 (SF2) Report">
               <i class="fas fa-file-alt"></i> <span>SF2 Report</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" title="Trend Analysis">
               <i class="fas fa-chart-line"></i> <span>Trend Analysis</span>
             </a>
           </li>
 
           <li class="menu-separator"></li>
           <li>
-            <a href="#">
+            <a href="#" id="logoutLink" title="Logout">
               <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
             </a>
           </li>
         </ul>
       </nav>
+
+      <!-- Top Header -->
+      <header class="top-header">
+        <input type="text" class="search-bar" placeholder="Search here..." />
+        <div class="user-info">
+          <i class="fas fa-bell bell"></i>
+          <div class="name-role">
+            <span class="username">John D. Admin</span>
+            <span class="role">Administrator</span>
+          </div>
+          <img
+            src="https://via.placeholder.com/30"
+            class="avatar"
+            alt="Profile"
+          />
+        </div>
+      </header>
 
       <!-- Main Content -->
       <main class="main-content">
@@ -134,7 +135,7 @@
             <h2>Trend Analysis</h2>
             <div class="placeholder trend"></div>
           </div>
-          <div class="card">
+          <div class="calendar-container">
             <h2>Calendar</h2>
             <div id="calendar"></div>
           </div>
@@ -150,6 +151,17 @@
           <div class="placeholder activity-content"></div>
         </div>
       </main>
+    </div>
+
+    <div id="logoutModal" class="modal">
+      <div class="modal-content">
+        <h2>Confirm Logout</h2>
+        <p>Are you sure you want to log out?</p>
+        <div class="modal-actions">
+          <button id="cancelLogout" class="btn cancel">Cancel</button>
+          <a href="/logout" class="btn confirm">Logout</a>
+        </div>
+      </div>
     </div>
 
     <!-- JS File -->
