@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Form 2 Report</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      background-color: #fff;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #f1f1f1;
+      border-right: 1px solid #ccc;
+      padding: 20px 10px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar h1 {
+      font-size: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #333;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: white;
+      border: 1px solid #333;
+      border-radius: 5px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .sidebar button:hover {
+      background-color: #ddd;
+    }
+
+    .sidebar .section-label {
+      font-size: 12px;
+      margin: 20px 0 5px;
+      font-weight: bold;
+      color: #444;
+      text-transform: uppercase;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 250px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .breadcrumbs {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-right span {
+      font-size: 14px;
+    }
+
+    .section-selector {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .section-selector label {
+      font-weight: 500;
+    }
+
+    .section-selector select {
+      padding: 8px 10px;
+      width: 200px;
+      border-radius: 4px;
+      border: 1px solid #aaa;
+    }
+
+    .export-button {
+    padding: 5px 10px;
+    border: 1px solid #444;
+     border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+    display: block;       
+    margin: 0 auto;       
+    }
+
+
+    .export-button:hover {
+      background-color: #eee;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 1000;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .burger {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+
+    .burger {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Burger Menu -->
+  <button class="burger" onclick="toggleSidebar()">☰</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h1>AttendEase</h1>
+    <button>Dashboard</button>
+
+    <div class="section-label">Management</div>
+    <a href="teacher.html"><button>Teachers</button></a>
+    <a href="learner.html"><button>Learners</button></a>
+    <a href="attendance.html"><button>Attendance</button></a>
+    <a href="schedule.html"><button>Schedule</button></a>
+
+    <div class="section-label">Reports</div>
+     <a href="sf2.html"><button>School Form 2</button></a>
+     <a href="trend_analysis.html"><button>Trend Analysis</button></a>
+
+    <button style="margin-top: 30px;">Logout</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h2>SCHOOL FORM 2</h2>
+        <div class="breadcrumbs">Home > School Form 2</div>
+      </div>
+      <div class="top-right">
+        <span>🔔</span>
+        <span>📧 admin name<br><strong>Administrator</strong></span>
+      </div>
+    </div>
+
+    <div class="section-selector">
+      <label for="sectionSelect">Section:</label>
+      <select id="sectionSelect">
+        <option value="">Select Section</option>
+        <option value="Grade 7 - Section A">Grade 7 - Section A</option>
+        <option value="Grade 8 - Section B">Grade 8 - Section B</option>
+        <option value="Grade 9 - Section C">Grade 9 - Section C</option>
+      </select>
+    </div>
+
+    <!-- Placeholder for SF2 Report -->
+    <div id="sf2Report" style="border: 2px solid #000; height: 400px; margin-top: 20px;">
+      <!-- Add your report content here -->
+    </div>
+    <div>
+
+    </div>
+    <!-- Export Button -->
+    <button class="export-button" onclick="exportSF2()">Export SF2</button>
+  </div>
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    // Simulate SF2 Report Generation
+    function generateSF2Report(section) {
+      const reportContainer = document.getElementById("sf2Report");
+      reportContainer.innerHTML = `
+        <h3>School Form 2 Report</h3>
+        <p>Section: ${section}</p>
+        <p>This is a placeholder for the actual SF2 report data.</p>
+      `;
+    }
+
+    // Handle Section Selection
+    document.getElementById("sectionSelect").addEventListener("change", function () {
+      const selectedSection = this.value;
+      if (selectedSection) {
+        generateSF2Report(selectedSection);
+      } else {
+        document.getElementById("sf2Report").innerHTML = "";
+      }
+    });
+
+    // Simulate Export Functionality
+    function exportSF2() {
+      alert("Exporting School Form 2 Report...");
+      // Add actual export logic here (e.g., CSV/Excel generation)
+    }
+  </script>
+
+</body>
+</html>

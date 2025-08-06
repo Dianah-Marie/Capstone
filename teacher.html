@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Management</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #fff;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #f1f1f1;
+      border-right: 1px solid #ccc;
+      padding: 20px 10px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+
+    .sidebar h1 {
+      font-size: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: white;
+      border: 1px solid #333;
+      border-radius: 5px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .sidebar button:hover {
+      background-color: #ddd;
+    }
+
+    .sidebar .section-label {
+      font-size: 12px;
+      margin: 20px 0 5px;
+      font-weight: bold;
+      color: #444;
+      text-transform: uppercase;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 250px;
+      padding: 20px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .breadcrumbs {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-right span {
+      font-size: 14px;
+    }
+
+    .search-bar {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-bar input {
+      padding: 8px 10px;
+      width: 300px;
+      border-radius: 20px;
+      border: 1px solid #aaa;
+    }
+
+    .register-button {
+      padding: 10px 20px;
+      border: 1px solid #444;
+      border-radius: 20px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .register-button:hover {
+      background-color: #eee;
+    }
+
+    /* Table */
+    table {
+      margin-top: 30px;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f9f9f9;
+    }
+
+    .action-buttons button {
+      margin-right: 5px;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .action-buttons .edit {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .action-buttons .delete {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    /* Burger Button */
+    .burger {
+      display: none;
+    }
+
+    /* Responsive for burger */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      .burger {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Burger Button -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+<!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h1>AttendEase</h1>
+    <button>Dashboard</button>
+
+    <div class="section-label">Management</div>
+    <a href="teacher.html"><button>Teachers</button></a>
+    <a href="learner.html"><button>Learners</button></a>
+    <a href="attendance.html"><button>Attendance</button></a>
+    <a href="schedule.html"><button>Schedule</button></a>
+
+    <div class="section-label">Reports</div>
+     <a href="sf2.html"><button>School Form 2</button></a>
+     <a href="trend_analysis.html"><button>Trend Analysis</button></a>
+
+    <button style="margin-top: 30px;">Logout</button>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h2>TEACHER</h2>
+        <div class="breadcrumbs">Home > Teacher</div>
+      </div>
+      <div class="top-right">
+        <span>🔔</span>
+        <span>📧 admin name<br><strong>Administrator</strong></span>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <span>🔍</span>
+      <input type="text" placeholder="Search">
+      <button class="register-button" onclick="showAddForm()">+ Register Account</button>
+    </div>
+
+    <!-- Add Teacher Form -->
+    <form id="addForm" style="display:none; margin-top: 20px;">
+      <label for="username">Username:</label>
+      <input type="text" id="username" required>
+
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" required>
+
+      <label for="accountType">Account Type:</label>
+      <select id="accountType">
+        <option>Teacher</option>
+        <option>Admin</option>
+      </select>
+
+      <button type="submit" class="register-button" style="margin-top:10px;">Add Teacher</button>
+    </form>
+
+    <table id="teacherTable">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Account Type</th>
+          <th>Full Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sample Data -->
+        <tr>
+          <td>cbruno</td>
+          <td>Teacher</td>
+          <td>Ced Bruno</td>
+          <td class="action-buttons">
+            <button class="edit">Edit</button>
+            <button class="delete" onclick="return confirmDelete(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+     function toggleSidebar() {
+      document.body.classList.toggle("show-sidebar");
+    }
+
+    function confirmDelete(button) {
+      if (confirm("Are you sure you want to delete this teacher?")) {
+        const row = button.closest('tr');
+        row.remove();
+        return true;
+      }
+      return false;
+    }
+
+    function showAddForm() {
+      const form = document.getElementById('addForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+
+    document.getElementById('addForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const fullName = document.getElementById('fullName').value;
+      const accountType = document.getElementById('accountType').value;
+
+      const table = document.getElementById("teacherTable").getElementsByTagName("tbody")[0];
+      const row = table.insertRow();
+      row.innerHTML = `
+        <td>${username}</td>
+        <td>${accountType}</td>
+        <td>${fullName}</td>
+        <td class="action-buttons">
+          <button class="edit">Edit</button>
+          <button class="delete" onclick="return confirmDelete(this)">Delete</button>
+        </td>
+      `;
+
+      document.getElementById('addForm').reset();
+      document.getElementById('addForm').style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
