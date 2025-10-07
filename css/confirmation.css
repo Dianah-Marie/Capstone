@@ -1,0 +1,287 @@
+/* Logout Confirmation */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  max-width: 90%;
+}
+
+.modal-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn.cancel {
+  background-color: #ccc;
+}
+
+.btn.confirm {
+  background-color: #e74c3c;
+  color: white;
+}
+.modal-icon {
+  font-size: 3rem;   /* make it bigger */
+  color: var(--dark-color);   /* blue for report, change as you like */
+  margin-bottom: 1rem;
+}
+
+/* 🎨 Report Modal Buttons */
+#reportModal .btn.cancel {
+  background-color: #ccc; /* keep gray */
+}
+
+#reportModal .btn.confirm {
+  background-color: var(--dark-color); /* blue for generate */
+  color: white;
+}
+
+/*EDIT MODAL */
+
+.edit-modal {
+  display: none;
+  position: fixed;
+  z-index: 1100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-modal-content {
+  background: #fff;
+  padding: 25px 30px;           /* slightly more padding */
+  border-radius: 12px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+  width: 500px;                 /* increased from 420px */
+  max-width: 95%;               /* responsive */
+  max-height: 90vh;             
+  overflow-y: auto;             
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;  
+}
+.edit-modal-content h2 {
+  text-align: center;
+  margin-top: 0;   /* optional: remove extra top margin */
+  margin-bottom: 20px; /* optional: space below */
+}
+
+
+
+/* Optional: nice custom scrollbar */
+.edit-modal-content::-webkit-scrollbar {
+  width: 5px;
+}
+.edit-modal-content::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 6px;
+}
+
+
+.edit-modal-content h2 {
+  margin-top: 0;
+}
+
+.edit-modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-modal-content input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-modal-content .close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 30px;            /* circle size */
+  height: 30px;
+  background-color: red;  /* red circle */
+  color: white;           /* white X */
+  border-radius: 50%;     /* makes it round */
+  text-align: center;
+  line-height: 30px;      /* centers the X vertically */
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* optional hover effect */
+}
+
+/* Optional hover effect */
+.edit-modal-content .close:hover {
+  transform: scale(1.1);  /* slightly bigger on hover */
+}
+.edit-modal-content input:focus {
+  outline: none;                     /* remove default blue outline */
+  border: 2px solid var(--primary-color);   /* border uses primary color */     /* soft cream background on focus */
+  box-shadow: 0 0 5px rgba(209, 148, 17, 0.5); /* subtle glow using primary color */
+}
+/* 🔹 Edit Modal Buttons */
+#editForm button {
+  background-color: var(--dark-color);   /* button color */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  margin-top: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  /* Flexbox alignment */
+  display: inline-flex;
+  align-items: center;        /* vertical center */
+  justify-content: center;    /* horizontal center */
+  gap: 6px;                   /* spacing if you add an icon later */
+}
+#editForm button:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+#editForm button:active {
+  background-color: var(--primary-color);
+  transform: scale(0.97);
+}
+#editForm label {
+  font-weight: 700; /* slightly bold */
+}
+
+/* Delete Confirmation Modal */
+.delete-modal {
+  display: none;
+  position: fixed;
+  z-index: 1200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal-content {
+  background: #fff;
+  padding: 2rem; 
+  border-radius: 10px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+  width: 300px;  
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-in-out;
+  text-align: center;
+  position: relative;
+}
+
+.delete-modal-content .modal-icon {
+  font-size: 3rem;
+  color: #e74c3c; /* red trash icon */
+  margin-bottom: 1rem;
+}
+
+.delete-modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.delete-modal-content .btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-modal-content .btn.cancel {
+  background-color: #ccc;
+}
+
+.delete-modal-content .btn.confirm {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-modal-content .close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+
+
+.delete-modal-content .close:hover {
+  transform: scale(1.1);
+}
+
+/* Apply to all modal buttons */
+.modal-content .btn,
+.edit-modal-content button,
+.delete-modal-content .btn,
+#editForm button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.modal-content .btn:hover,
+.edit-modal-content button:hover,
+.delete-modal-content .btn:hover,
+#editForm button:hover {
+  transform: scale(1.05); /* slightly zoom */
+}
+
+/* Active (click) effect */
+.modal-content .btn:active,
+.edit-modal-content button:active,
+.delete-modal-content .btn:active,
+#editForm button:active {
+  transform: scale(0.97); /* slight press down */
+}
+
+
+/* Optional smooth fade animation */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}

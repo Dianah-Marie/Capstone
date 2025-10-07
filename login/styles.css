@@ -1,0 +1,116 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  height: 95vh;
+  background-image: url("img/gatee.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(5px);
+  padding: 5px;
+}
+
+/* Main card */
+.card {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo that slides */
+.logo-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-60%); /* default left */
+  transition: transform 0.6s ease;
+}
+
+.logo-wrapper.right {
+  transform: translateY(-50%) translateX(50%); /* move to right */
+}
+
+.logoimg {
+  width: 650px;
+}
+
+/* Forms */
+.form-wrapper {
+  position: absolute;
+  width: 50%;
+  transition: opacity 0.6s ease;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+}
+
+.form-wrapper.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Force positions */
+.loginform {
+  right: 0;   /* always on right */
+}
+
+.forgetform {
+  left: 0;    /* always on left */
+}
+
+/* Headings */
+.form-wrapper h1 {
+  color: #0077b6;
+  margin-bottom: 20px;
+  font-size: 48px;
+}
+
+/* Inputs */
+input {
+  width: 250px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  display: block;
+  margin: 10px auto;
+  width: 180px;
+  padding: 10px;
+  background-color: #0077b6;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #f0f0f0;
+  color: #0077b6;
+  border: 0.5px solid #0077b6;
+  transition: 0.4s ease-in-out;
+}
+
+/* Links */
+a {
+  color: #0077b6;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}

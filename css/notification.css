@@ -1,0 +1,204 @@
+.notification-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 3000;
+}
+
+/* Bell Button */
+.btn-notification {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: var(--dark-color);
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+.btn-notification:hover,
+.btn-notification.active {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Panel */
+.notification-panel {
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 350px;
+  z-index: 3001;
+  padding: 15px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+.notification-panel.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Header */
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.notif-header h3 {
+  font-size: 16px;
+  color: var(--dark-color);
+  margin: 0;
+}
+.mark-read {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Tabs */
+.notif-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.tab {
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tab span {
+  background: #eee;
+  padding: 1px 5px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.tab.active {
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  transform: scale(1.05);
+  transition: all 0.3 ease;
+}
+.tab.active span{
+  color: var(--dark-color);
+}
+.tab:hover {
+  background: var(--primary-color);
+  color: #120707;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* List */
+.notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Item */
+.notif-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.notif-item:hover {
+  background: #f9f9f9;
+}
+.notif-item.unread {
+  background:var(--soft-cream);
+}
+
+/* Avatar */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.avatar.initials {
+  background: var(--dark-color);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Content */
+.notif-content p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-dark);
+}
+.notif-content small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-light);
+}
+.notif-content .preview {
+  color: var(--text-light);
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+/* Action Buttons */
+.notif-actions {
+  margin-top: 6px;
+  display: flex;
+  gap: 6px;
+}
+.btn.small {
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.btn.small.accept {
+  background: var(--primary-color);
+  color: #fff;
+}
+.btn.small.decline {
+  background: #eee;
+  color: var(--text-dark);
+}
+
