@@ -1,0 +1,411 @@
+/* -----------------------
+   Table Page Styles
+-------------------------*/
+
+/* Breadcrumb */
+.page-header {
+  margin-bottom: 2rem; /* gives space after whole header block */
+}
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Attendance Toggle (pill style) */
+.attendance-toggle {
+  display: inline-flex; /* make it only as wide as needed */
+  background: #e9ecef;
+  border-radius: 6px;
+  padding: 4px;
+  width: auto; /* prevent stretching full width */
+  margin-bottom: 1rem;
+}
+
+/* Buttons inside */
+.toggle-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  color: #585454;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* prevent text wrapping */
+}
+
+/* Active button */
+.toggle-btn.active {
+  background: #fff;
+  color: var(--dark-color);
+  font-weight: 1000; /* 🟡 Bold text */
+  box-shadow: 0 4px 10px rgba(208, 163, 64, 0.35); /* ✨ soft yellow glow */
+  transform: scale(1.05); /* 🔍 slight zoom */
+  transition: all 0.25s ease;
+}
+
+
+/* Filter + Search (inline layout) */
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Filter Button */
+.filter-btn {
+  padding: 8px 14px;
+  border: none;
+  background: var(--dark-color);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-btn:hover {
+  background: var(--hover-primary);
+}
+
+
+/* Filter Panel */
+.filter-container {
+  position: relative;
+  display: inline-block;
+}
+/* Heading */
+.filter-panel h3 {
+  margin-top: -10px;       /* adds space above */
+  margin-bottom: 20px;    /* keeps space below */
+  font-size: 1.5rem;      /* slightly bigger */
+  font-weight: 500;       /* bolder */
+  color: var(--text-dark);
+}
+
+.filter-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 300px;
+  z-index: 1000;
+}
+
+.filter-group {
+  margin-bottom: 12px;
+}
+
+.filter-group strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.filter-panel input[type="checkbox"] {
+  accent-color: var(--primary-color); /* changes the box & check color */
+  width: 16px;   /* optional: adjust size */
+  height: 16px;
+  cursor: pointer;
+  margin-right: 6px; /* spacing between checkbox and label text */
+}
+/* Sort Button (up/down) */
+.updown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark-color);
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 3px;
+}
+
+.updown:hover {
+  background: var(--hover-primary);
+}
+
+.btn-clear {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* smooth hover transition */
+}
+
+.btn-clear:hover {
+  background: #c0392b;
+  transform: scale(1.05); /* zoom effect */
+}
+
+.btn-apply {
+  background: var(--dark-color);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* smooth transition for hover effects */
+}
+
+.btn-apply:hover {
+  background: var(--primary-color);
+  transform: scale(1.05); /* slightly zoom in */
+}
+
+/* ✅ Unified Search Bar */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between icon and input */
+  position: relative;
+  max-width: 250px;  /* Example */
+  flex: 1;           /* Makes it stretch if inside flex container */
+}
+
+
+.search-wrapper i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 14px;
+  pointer-events: none; /* prevents blocking clicks in input */
+}
+
+.search-wrapper .search-bar {
+  width: 100%;
+  padding: 10px 16px 10px 36px; /* icon spacing */
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #fdfdfd, #f5f7fa);
+  font-size: 15px;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.search-wrapper .search-bar::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+.search-wrapper .search-bar:focus {
+  background: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(209, 148, 17, 0.25);
+}
+
+/* Table */
+.table-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  overflow-y: auto; /* allow vertical scrolling */
+  max-height: 500px; /* optional: limit height */
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+/* Header */
+.styled-table thead {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.styled-table thead th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  position: sticky;    /* ✅ Sticky header */
+  top: 0;
+  z-index: 2;
+  background: var(--dark-color);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+/* Rows */
+.styled-table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* ✅ Alternating stripes */
+.styled-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.styled-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+/* ✅ Enhanced hover */
+.styled-table tbody tr:hover {
+  background: #f0efed; 
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.styled-table td {
+  padding: 12px;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-buttons button {
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.edit-btn {
+  background: #3498db;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #2980b9;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* Report Button */
+.report-btn {
+  background: var(--dark-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 520px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease;
+  flex-shrink: 0; 
+}
+
+.report-btn:hover {
+  background: var(--primary-color);
+}
+
+.export-btn {
+  background: var(--dark-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 825px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease;
+  flex-shrink: 0; 
+}
+
+.export-btn:hover {
+  background: var(--primary-color);
+}
+
+/* Summary Button */
+.summary-btn {
+  background-color: var(--dark-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease;
+  flex-shrink: 0; 
+  text-decoration: none;
+}
+
+.summary-btn:hover {
+  background-color: var(--hover-primary);
+}
+.register-button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+   margin-left: auto;
+}
+
+.register-button:hover {
+  background: var(--hover-primary);
+}
+
+.register-button i {
+  font-size: 15px;
+}
+
+
